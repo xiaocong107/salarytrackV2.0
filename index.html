@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打工薪資紀錄器 - 最終穩定版</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        
+        <header class="top-summary-bar" id="mainHeader">
+            <h1 id="currentMonthTitle">2025年11月</h1>
+            
+            <div class="summary-grid">
+                <div class="sum-card">
+                    <p>總工時</p>
+                    <span class="value primary-color" id="totalHoursDisplay">0h</span>
+                </div>
+                <div class="sum-card">
+                    <p>預計收入 (未扣)</p>
+                    <span class="value secondary-color" id="totalSalaryDisplay">0元</span>
+                </div>
+                <div class="sum-card">
+                    <p>實際收入 (淨額)</p>
+                    <span class="value net-salary-color" id="netSalaryDisplay">0元</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="settings-panel" id="settingsPage">
+            <h2>⚙️ 個人設定</h2>
+            
+            <div class="settings-content">
+                <div class="input-group">
+                    <label for="hourlyRate">時薪 (NT$):</label>
+                    <input type="number" id="hourlyRate" value="183" min="0" placeholder="設定您的時薪">
+                </div>
+                <div class="input-group">
+                    <label for="insuranceDeduction">勞保/其他扣款 (NT$):</label>
+                    <input type="number" id="insuranceDeduction" value="1000" min="0" placeholder="每月固定扣款金額">
+                </div>
+            </div>
+        </section>
+
+        <section class="history-page" id="historyPage">
+            <h2>📜 歷史結算總覽 (月曆卡片)</h2>
+            <div id="historyGrid" class="history-grid-container">
+                </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="saveMonthlySummaryBtn" class="btn-primary" style="margin-right: 10px;">儲存當前月結算</button>
+                <button id="clearHistoryBtn" class="btn-clear">清除所有歷史紀錄</button>
+            </div>
+        </section>
+
+
+        <main class="calendar-section" id="calendarPage">
+            <h2>📅 日曆與紀錄</h2>
+            <div class="calendar-nav">
+                <button id="prevMonthBtn" class="nav-button">&#9664; 上個月</button>
+                <button id="nextMonthBtn" class="nav-button">下個月 &#9654;</button>
+            </div>
+            
+            <div class="weekdays">
+                <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+            </div>
+            
+            <div id="calendarDisplay" class="calendar-grid">
+                </div>
+        </main>
+        
+        <section class="edit-panel" id="editPanel">
+            <h2>編輯 <span id="selectedDateTitle">(點擊日期)</span></h2>
+            
+            <div id="currentLogInfo">
+                </div>
+            
+            <div class="stepper-inputs">
+                <div class="input-group">
+                    <label for="workHoursInput">工時 (小時):</label>
+                    <input type="number" id="workHoursInput" value="0" min="0" max="12" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="workMinutesInput">工時 (分鐘):</label>
+                    <input type="number" id="workMinutesInput" value="0" min="0" max="59" step="5">
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="saveWorkBtn" class="btn-save">儲存工時</button> 
+                <button id="saveOffBtn" class="btn-leave">排休</button>
+                <button id="saveLeaveBtn" class="btn-leave">請假</button>
+                <button id="clearDayBtn" class="btn-clear">清除紀錄</button>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="dataStore" style="display:none;">
+        <input type="hidden" id="monthTracker">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

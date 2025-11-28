@@ -1,0 +1,231 @@
+:root {
+    --color-bg: #121212; 
+    --color-surface: #1e1e1e;
+    --color-text-primary: #e0e0e0; 
+    --color-text-secondary: #909090; 
+    --color-accent: #6200ee; 
+    --color-success: #03dac6; 
+    --color-danger: #cf6679; 
+    --color-warning: #ffcc80; 
+    --color-net-salary: #f1c40f; 
+}
+
+/* 確保 App 體驗 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    margin: 0;
+    padding: 10px; 
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 600px; 
+    width: 100%;
+    padding: 0;
+}
+
+/* ------------------------------------- */
+/* 區塊基礎樣式 */
+/* ------------------------------------- */
+.top-summary-bar, .settings-panel, .history-page, .calendar-section, .edit-panel {
+    background: var(--color-surface);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.top-summary-bar {
+    border-radius: 0; 
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0 0 15px 0;
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2em;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+/* ------------------------------------- */
+/* 頂部總結區 */
+/* ------------------------------------- */
+.summary-grid {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5px; 
+}
+
+.sum-card {
+    background: #252525;
+    border-radius: 8px;
+    padding: 10px 5px; 
+    min-width: 30%; 
+    max-width: 33%;
+    text-align: center;
+}
+.primary-color { color: var(--color-accent); }
+.secondary-color { color: var(--color-success); }
+.net-salary-color { color: var(--color-net-salary); } 
+
+/* ------------------------------------- */
+/* 設定區塊樣式 */
+/* ------------------------------------- */
+.settings-content {
+    padding-top: 10px;
+    margin-top: 0;
+    border-top: 1px solid #333;
+}
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.input-group label {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+}
+.input-group input[type="number"] {
+    width: 120px; 
+    padding: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: var(--color-text-primary);
+    border-radius: 4px;
+    text-align: right;
+    font-size: 1em;
+}
+
+/* ------------------------------------- */
+/* 歷史紀錄月曆卡片 */
+/* ------------------------------------- */
+.history-page h2 {
+    color: var(--color-accent);
+}
+.history-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+    gap: 10px;
+    margin-top: 15px;
+}
+.history-month-card {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 6px;
+    border-top: 4px solid var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.card-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 3px;
+}
+.card-net strong {
+    color: var(--color-net-salary);
+    font-size: 1.2em;
+    display: block;
+}
+
+/* ------------------------------------- */
+/* 核心按鈕質感升級 (NEW) */
+/* ------------------------------------- */
+
+/* 確保所有按鈕的基礎樣式一致 */
+.action-buttons button, #saveMonthlySummaryBtn, #clearHistoryBtn, .nav-button {
+    font-size: 1em;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px; /* 圓角更柔和 */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* 1. 儲存按鈕 (主色調，高質感) */
+#saveMonthlySummaryBtn {
+    /* 使用微漸變增加立體感 */
+    background: linear-gradient(180deg, var(--color-accent), #4f00c2); 
+    color: white;
+    box-shadow: 0 4px 0 #3a0094, 0 6px 8px rgba(0, 0, 0, 0.5); /* 底部陰影 */
+}
+#saveMonthlySummaryBtn:active {
+    /* 按下時產生按壓感 */
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3a0094;
+}
+
+/* 2. 清除按鈕 (破壞性操作，高對比度) */
+#clearHistoryBtn {
+    background-color: var(--color-danger);
+    color: white;
+    box-shadow: 0 4px 0 #9f3e50, 0 6px 8px rgba(0, 0, 0, 0.5); 
+}
+#clearHistoryBtn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #9f3e50;
+}
+
+/* ------------------------------------- */
+/* 編輯面板內的按鈕 (較為扁平) */
+/* ------------------------------------- */
+.btn-save { background-color: var(--color-success); color: #121212; box-shadow: none; }
+.btn-leave { background-color: #333; color: var(--color-text-primary); box-shadow: none; }
+.btn-clear { background-color: var(--color-danger); color: white; box-shadow: none; }
+
+
+/* ------------------------------------- */
+/* 底部編輯區 (不變) */
+/* ------------------------------------- */
+.edit-panel {
+    background: #181818;
+    padding: 15px;
+    margin-top: 15px;
+}
+.edit-panel h2 { border-bottom: 1px solid #333; }
+#currentLogInfo { padding: 10px 0; font-size: 1.1em; font-weight: bold; }
+.stepper-inputs { display: flex; justify-content: space-between; gap: 20px; margin-top: 15px; }
+.stepper-inputs .input-group { flex-direction: column; align-items: flex-start; flex-grow: 1; }
+.stepper-inputs input[type="number"] { width: 100%; margin-top: 5px; text-align: center; }
+.action-buttons { display: flex; gap: 10px; margin-top: 20px; }
+.action-buttons button { padding: 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; flex-grow: 1; }
+
+
+/* ------------------------------------- */
+/* 其他區塊樣式 (日曆等) */
+/* ------------------------------------- */
+
+.calendar-nav { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.nav-button {
+    background: #333;
+    color: var(--color-accent);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: none; /* 移除陰影，與新按鈕區分 */
+}
+
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: bold; color: var(--color-text-secondary); padding: 5px 0; margin-bottom: 5px; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.calendar-day { padding: 5px 3px; min-height: 55px; background-color: #2a2a2a; border-radius: 3px; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; cursor: pointer; border: 1px solid transparent; }
+.calendar-day.selected { border: 2px solid var(--color-accent); background-color: #383838; }
+.day-number { font-size: 0.9em; font-weight: bold; margin-bottom: 2px; }
+.day-info { font-size: 0.7em; line-height: 1.2; }
+.day-info.salary { font-weight: bold; color: var(--color-success); }
+.day-work { background-color: #3c544d; }
+.day-leave { background-color: #553b43; }
+.day-off { background-color: #51513a; }
+.calendar-day.empty { background: transparent; border: none; }
